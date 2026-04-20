@@ -1,0 +1,23 @@
+---
+name: Lint YAML
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.yaml'
+      - '**.yml'
+  pull_request:
+    paths:
+      - '**.yaml'
+      - '**.yml'
+  workflow_dispatch:
+
+jobs:
+  yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: pako-23/action-yamllint@v0

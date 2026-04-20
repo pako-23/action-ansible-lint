@@ -1,0 +1,27 @@
+---
+name: Publish Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  publish-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: softprops/action-gh-release@v3
+        with:
+          generate_release_notes: true
+
+      - name: Update major version tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          MAJOR="$(echo '${{ github.ref_name }}' | cut -f1 -d '.')"
+          git tag -f "$MAJOR" '${{ github.ref_name }}'
+          git push origin --tags --force
