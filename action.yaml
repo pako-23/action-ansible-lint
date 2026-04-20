@@ -1,20 +1,11 @@
 ---
-# TODO add a unique name to the action.
-# https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax#name
-name: Some name
-# TODO add a description to the action.
-# https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax#description
-description: Some description
-# TODO add an author to the action.
-# https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax#author
+name: Lint Ansible code
+description: Run ansible-lint on some ansible role, playbook, etc.
 author: Some author
-# TODO set an icon for the action.
-# https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax#branding
+author: pako-23 <pasqualepolverino98@gmail.com>
 branding:
-  icon: play-circle
+  icon: shield
   color: blue
-# TODO add a mapping of inputs for the action.
-# https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax#inputs
 inputs: {}
 # TODO add a mapping of outputs for the action.
 # https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax#outputs-for-composite-actions

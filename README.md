@@ -1,7 +1,7 @@
-[![Latest Release](https://img.shields.io/github/v/release/{TODO add owner}/{TODO add repo name}?sort=semver)](https://github.com/{TODO add owner}/{TODO add repo name}/releases/latest)
-[![Lint YAML](https://github.com/{TODO add owner}/{TODO add repo name}/actions/workflows/lint.yaml/badge.svg)](https://github.com/{TODO add owner}/{TODO add repo name}/actions/workflows/lint.yaml)
+[![Latest Release](https://img.shields.io/github/v/release/pako-23/action-ansible-lint?sort=semver)](https://github.com/pako-23/action-ansible-lint/releases/latest)
+[![Lint YAML](https://github.com/pako-23/action-ansible-lint/actions/workflows/lint.yaml/badge.svg)](https://github.com/pako-23/action-ansible-lint/actions/workflows/lint.yaml)
 
-# TODO name the github action
+# ansible-lint GitHub Action
 
 TODO add some description about what the action does.
 
