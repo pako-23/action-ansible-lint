@@ -5,15 +5,37 @@ author: pako-23 <pasqualepolverino98@gmail.com>
 branding:
   icon: shield
   color: blue
-inputs: {}
-# TODO add a mapping of outputs for the action.
-# https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax#outputs-for-composite-actions
-outputs: {}
+inputs:
+  files:
+    description: Files or directories to check
+    default: .
+    required: false
+  working_directory:
+    description: >
+      The directory where to run yamllint from.
+      Default is `github.workspace`
+    default: ''
+    required: false
 runs:
   using: composite
-  # TODO add steps describing what the action should do.
-  # https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax#runssteps
   steps:
-    - name:
+    - name: Process working directory
+      id: inputs
       shell: bash
-      run: echo TODO add steps
+      run: |
+        if [[ -n "${{ inputs.working_directory }}" ]]; then
+          echo "working_directory=${{ inputs.working_directory }}" \
+            >> $GITHUB_OUTPUT
+        else
+          echo "working_directory=${{ github.workspace }}" \
+            >> $GITHUB_OUTPUT
+        fi
+
+    - name: Install ansible-lint
+      shell: bash
+      run: pip install ansible-lint
+
+    - name: Run yamllint
+      shell: bash
+      working-directory: ${{ steps.inputs.outputs.working_directory }}
+      run: ansible-lint ${{ inputs.files }}
