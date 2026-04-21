@@ -3,24 +3,57 @@
 
 # ansible-lint GitHub Action
 
-TODO add some description about what the action does.
+A GitHub Action to lint [Ansible] playbooks, roles and collections
+using [ansible-lint].
 
 ## Usage
 
-TODO add some description about how to use the action.
+```yaml
+- uses: pako-23/action-ansible-lint@v0
+  with:
+    files: .
+    working_directory: ${{ github.workspace }}
+```
+
 
 ## Inputs
 
-TODO describe the inputs to the action.
-
 | Input | Description | Default |
 |-------|-------------|:-------:|
-| `intput1` | Description 1 | `default1` |
+| `files` | Files or directories to check | `.` |
+| `working_directory` | The directory where to run ansible-lint from | `${{ github.workspace }}` |
 
 ## Example Workflow
 
-TODO add en example about how to use the action.
+```yaml
+name: Lint Ansible role
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.yaml'
+      - '**.yml'
+  pull_request:
+    paths:
+      - '**.yaml'
+      - '**.yml'
+
+jobs:
+  yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: pako-23/action-ansible-lint@v0
+```
 
 ## License
 
 [MIT](LICENSE)
+
+[ansible]:
+  https://docs.ansible.com/projects/ansible/latest/getting_started/introduction.html
+[ansible-lint]:
+  https://docs.ansible.com/projects/lint/

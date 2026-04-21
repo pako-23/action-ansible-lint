@@ -1,6 +1,6 @@
 ---
 name: Lint Ansible code
-description: Run ansible-lint on some ansible role, playbook, etc.
+description: Run ansible-lint on some ansible playbooks, roles and collections.
 author: pako-23 <pasqualepolverino98@gmail.com>
 branding:
   icon: shield
