@@ -1,20 +1,11 @@
 [![Latest Release](https://img.shields.io/github/v/release/pako-23/action-ansible-lint?sort=semver)](https://github.com/pako-23/action-ansible-lint/releases/latest)
 [![Lint YAML](https://github.com/pako-23/action-ansible-lint/actions/workflows/lint.yaml/badge.svg)](https://github.com/pako-23/action-ansible-lint/actions/workflows/lint.yaml)
+[![License](https://img.shields.io/github/license/pako-23/action-hadolint)](LICENSE)
 
 # ansible-lint GitHub Action
 
 A GitHub Action to lint [Ansible] playbooks, roles and collections
 using [ansible-lint].
-
-## Usage
-
-```yaml
-- uses: pako-23/action-ansible-lint@v0
-  with:
-    files: .
-    working_directory: ${{ github.workspace }}
-```
-
 
 ## Inputs
 
